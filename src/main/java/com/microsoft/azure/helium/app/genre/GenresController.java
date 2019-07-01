@@ -25,7 +25,7 @@ public class GenresController {
 
     @Autowired
     private GenresService service;
-
+    
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ApiOperation(value = "Get all genres", notes = "Retrieve and return all genres")
     @ApiResponses(value = { @ApiResponse(code = 200, message = "List of genres objects") })

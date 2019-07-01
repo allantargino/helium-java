@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.anyString;
 
-import java.util.Random;
+import com.microsoft.azure.helium.utils.IntegrationTestsUtils;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,16 +56,10 @@ public class CosmosDbHealthIndicatorTest {
     }
 
     private int getRandomHttpSuccessCode(){
-        return getRandomBetween(200, 204);
+        return IntegrationTestsUtils.getRandomBetween(200, 204);
     }
 
     private int getRandomHttpErrorCode(){
-        return getRandomBetween(400, 600);
+        return IntegrationTestsUtils.getRandomBetween(400, 600);
     }
-
-    private int getRandomBetween(int low, int high) {
-        Random r = new Random();
-        return r.nextInt(high - low) + low;
-    }
-
 }

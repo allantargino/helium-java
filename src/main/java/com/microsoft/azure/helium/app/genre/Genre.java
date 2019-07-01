@@ -8,6 +8,7 @@ import com.microsoft.azure.spring.data.cosmosdb.core.mapping.PartitionKey;
 import org.springframework.data.annotation.Id;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 /**
@@ -15,6 +16,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
+@EqualsAndHashCode
 @Document(collection = Constants.DEFAULT_GENRE_COLLECTION_NAME)
 public class Genre {
     @Id

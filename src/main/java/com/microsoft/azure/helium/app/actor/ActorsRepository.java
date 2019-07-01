@@ -10,4 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface ActorsRepository extends DocumentDbRepository<Actor, String> {
      List<Actor> findByActorId(String actorId);
      List<Actor> findByTextSearchContaining(String actorName);
+     //TODO: change to below when fixed: https://github.com/microsoft/spring-data-cosmosdb/issues/362
+     //List<Actor> findByTextSearchContainingIgnoreCase(String actorName);
 }
