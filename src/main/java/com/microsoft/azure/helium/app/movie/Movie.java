@@ -6,6 +6,7 @@ import com.microsoft.azure.helium.app.Constants;
 import com.microsoft.azure.spring.data.cosmosdb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import com.microsoft.azure.helium.app.actor.Actor;
@@ -15,6 +16,7 @@ import com.microsoft.azure.helium.app.actor.Actor;
  */
 @Getter
 @AllArgsConstructor
+@EqualsAndHashCode
 @Document(collection = Constants.DEFAULT_MOVIE_COLLECTION_NAME)
 public class Movie {
   private String id;
@@ -23,9 +25,9 @@ public class Movie {
   private String title;
   private String type;
   private String key;
-  private float year;
-  private float rating;
-  private float votes;
+  private int year;
+  private int rating;
+  private int votes;
   private List<String> genres;
   private List<Actor> roles;
 }
