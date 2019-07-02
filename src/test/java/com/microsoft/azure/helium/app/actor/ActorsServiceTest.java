@@ -38,7 +38,7 @@ public class ActorsServiceTest {
     private ActorsService service;
 
     @Test
-    public void shouldReturnListOfAllGenres() throws Exception {
+    public void shouldReturnListOfAllActors() throws Exception {
         // Arrange
         List<Actor> expected = Arrays.asList(mock(Actor.class));
         when(repository.findAll()).thenReturn(expected);
@@ -54,7 +54,7 @@ public class ActorsServiceTest {
     }
 
     @Test
-    public void shouldReturnListofGenresWhenQueryingValue() throws Exception {
+    public void shouldReturnListofActorsWhenQueryingValue() throws Exception {
         // Arrange
         List<Actor> expected = Arrays.asList(mock(Actor.class));
         when(repository.findByTextSearchContaining(anyString())).thenReturn(expected);
