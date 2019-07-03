@@ -130,7 +130,7 @@ public class MoviesControllerTest {
         // Arrange
         String id = UUID.randomUUID().toString();
         Movie expected = MoviesUtils.createMovieWithId(id);
-        when(service.getMovie(any())).thenReturn(Optional.empty());
+        when(service.updateMovie(anyString(), any())).thenReturn(expected);
 
         // Act
         ResultActions action = this.mockMvc
