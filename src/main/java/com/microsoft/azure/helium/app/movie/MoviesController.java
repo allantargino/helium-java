@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,7 +32,7 @@ public class MoviesController {
     @Autowired
     private MoviesService service;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     @ApiOperation(value = "Get all movies", notes = "Retrieve and return all movies")
     @ApiResponses(value = { @ApiResponse(code = 200, message = "List of movie objects") })
     public ResponseEntity<List<Movie>> getAllMovies(
@@ -55,11 +56,11 @@ public class MoviesController {
         }
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create movie", notes = "Creates an movie")
     @ApiResponses(value = { @ApiResponse(code = 201, message = "The created movie") })
-    public ResponseEntity<Movie> createMovie(final Movie movie) {
+    public ResponseEntity<Movie> createMovie(@RequestBody final Movie movie) {
         Movie savedMovie = service.createMovie(movie);
         return new ResponseEntity<>(savedMovie, HttpStatus.OK);
     }
@@ -68,7 +69,7 @@ public class MoviesController {
     @ApiOperation(value = "Update movie", notes = "Update a movie")
     @ApiResponses(value = { @ApiResponse(code = 200, message = "The updated movie") })
     public ResponseEntity<Movie> updateMovie(
-            @ApiParam(value = "The ID of the actor to patch", required = true) @PathVariable("id") final String movieId, final Movie movie) {
+            @ApiParam(value = "The ID of the actor to patch", required = true) @PathVariable("id") final String movieId, @RequestBody final Movie movie) {
         Movie savedMovie = service.updateMovie(movieId, movie);
         return new ResponseEntity<>(savedMovie, HttpStatus.OK);
     }
